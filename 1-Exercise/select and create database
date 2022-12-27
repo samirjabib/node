@@ -1,0 +1,20 @@
+
+insert into todos (
+	title,
+	content,
+	status
+) values(
+	'tarea-2',
+	'esta es la tarea 2',
+	'inactive'
+),
+(
+	'tarea-3',
+	'esta es la tarea 3',
+	'active'
+)
+
+
+select * from  todos ; 
+
+select title, content from todos where status = 'active'
