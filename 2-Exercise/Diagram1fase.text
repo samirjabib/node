@@ -1,0 +1,43 @@
+table users {
+  id uuid [pk]
+  name varchar [not null]
+  email varchar [not null, unique]
+  password varchar [not null]
+  age integer [not null]
+  role_id uuid [not null]
+  courses_id uuid [not null, unique]
+}
+
+table courses {
+  course_id uuid [pk]
+  title varchar [not null]
+  description varchar [not null]
+  level varchar [not null]
+  teacher varchar [not null]
+  course_video_id uuid [not null, unique]
+  category_id uuid [not null, unique]
+}
+
+table courses_videos {
+  course_video_id uuid [pk]
+  title varchar [not null]
+  url varchar [not null]
+}
+
+table categories {
+  category_id uuid [pk]
+  name varchar [not null, unique]
+}
+
+table roles {
+  role_id uuid [pk]
+  name varchar [not null, unique]
+}
+
+Ref: "roles"."role_id" - "users"."role_id"
+
+Ref: "users"."courses_id" < "courses"."course_id"
+
+Ref: "courses"."course_video_id" > "courses_videos"."course_video_id"
+
+Ref: "courses"."category_id" - "categories"."category_id"

@@ -43,11 +43,12 @@ app.post('/',(req, res) => {
     //     is_completed:false,
     // })
 
+    const { id, title } = req.body //Desectructuramos los datos del body.
     
     
     database.push({
-        id:req.body.id, //Podemos Recibir los datos del body del cliente y agregarlos a la db de manera dinamica, si el cliente pasa un dato que no existe la variable para almacenarlo, o uno de mas, va a tirar un error. 
-        title:req.body.title,
+        id, //Podemos Recibir los datos del body del cliente y agregarlos a la db de manera dinamica, si el cliente pasa un dato que no existe la variable para almacenarlo, o uno de mas, va a tirar un error. 
+        title,
         is_completed:false,
     })
 

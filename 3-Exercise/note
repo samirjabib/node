@@ -1,0 +1,27 @@
+
+
+// 1.Npm init -y para iniciar el proyecto en node.
+// 2. Intalar Nodemon , crear los scripts en el package.
+
+
+
+https://academlo.notion.site/Wiki-f0d6600eac814022b9339189f59da860?p=de341b47f4a14e2b920d7eef7886a929&pm=c
+
+
+
+
+//*valores falsy
+
+// null
+// undefined
+// ''
+// 0
+// NaN
+
+
+
+// *Valores truty
+// 'sdadasdad'
+// 1
+// {}
+// []

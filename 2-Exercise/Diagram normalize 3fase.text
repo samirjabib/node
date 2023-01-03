@@ -1,0 +1,74 @@
+table users {
+  id uuid [pk]
+  name varchar [not null]
+  email varchar [not null, unique]
+  password varchar [not null]
+  age integer [not null]
+}
+
+table courses {
+  course_id uuid [pk]
+  title varchar [not null]
+  description varchar [not null]
+  level varchar [not null]
+  teacher varchar [not null]
+}
+
+table courses_videos {
+  course_video_id uuid [pk]
+  title varchar [not null]
+  url varchar [not null]
+}
+
+table categories {
+  category_id uuid [pk]
+  name varchar [not null, unique]
+}
+
+table roles {
+  role_id uuid [pk]
+  name varchar [not null, unique]
+}
+
+table users_courses {
+  id uuid [pk]
+  user_id uuid 
+  course_id uuid
+}
+
+table users_role {
+  id uuid [pk]
+  user_id uuid
+  role_id uuid
+}
+
+table courses_course_videos {
+  id uuid [pk]
+  course_video_id uuid
+  course_id uuid
+}
+
+table courses_categories {
+  id uuid [pk]
+  course_id uuid
+  category_id uuid
+}
+
+
+
+
+Ref: "users"."id" < "users_courses"."user_id"
+
+Ref: "courses"."course_id" < "users_courses"."course_id"
+
+Ref: "users"."id" - "users_role"."user_id"
+
+Ref: "roles"."role_id" - "users_role"."role_id"
+
+Ref: "courses"."course_id" < "courses_course_videos"."course_id"
+
+Ref: "courses_videos"."course_video_id" - "courses_course_videos"."course_video_id"
+
+Ref: "courses"."course_id" - "courses_categories"."course_id"
+
+Ref: "categories"."category_id" - "courses_categories"."category_id"
