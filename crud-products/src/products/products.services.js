@@ -63,12 +63,18 @@ const updateProduct = async(req, res) => {
 ;}
 
 const deleteProduct = async(req, res) => {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
+    if (id) {
+          try {
+            await productControllers.deleteProduct();
+
+            res.status(204).json({message:`Product with ${id} has be deleted`});
+        } catch (error) {
+            res.status(400).json({message:error.message});
+        }
+    } else {
+        res.status(404).json({message:'invalid id'})
+    };
+};
 
 module.exports = {
     getAllProducts,
