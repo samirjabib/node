@@ -49,11 +49,9 @@ const updateProduct = async(req, res) => {
 
     if (id && data) {
         try {
-            await productControllers.updateProduct(id, data)
+            const product = await productControllers.updateProduct(id, data)
         
-        res.status(200).json({
-            message:`Movie with ${id}, edited succesfuly`
-            });
+        res.status(200).json({message:`${product}, has be update`});
         } catch (error) {
             res.status(400).json({message:error.message})
         }
