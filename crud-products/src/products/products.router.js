@@ -1,13 +1,14 @@
-const { application } = require('express');
+const { createProducts, deleteProduct, getAllProducts, getProductById, updateProduct} = require('./products.services')
 
 const productsRotuer = require('express').Router();
 
 
-productsRotuer.get('/products')
-productsRotuer.post('/products')
 
-productsRotuer.get('/products/:id')
-productsRotuer.patch('/products/:id')
-productsRotuer.delete('/products/:id')
+productsRotuer.get('/products', getAllProducts)
+productsRotuer.post('/products', createProducts)
+
+productsRotuer.get('/products/:id', getProductById)
+productsRotuer.patch('/products/:id', updateProduct)
+productsRotuer.delete('/products/:id', deleteProduct)
 
 module.exports = productsRotuer;
