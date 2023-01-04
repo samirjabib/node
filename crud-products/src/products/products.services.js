@@ -44,12 +44,23 @@ const getProductById = async(req, res) => {
 
 
 const updateProduct = async(req, res) => {
-    try {
+    const id = req.params.id;
+    const data = req.body;
+
+    if (id && data) {
+        try {
+            await productControllers.updateProduct(id, data)
         
-    } catch (error) {
-        
-    }
-}
+        res.status(200).json({
+            message:`Movie with ${id}, edited succesfuly`
+            });
+        } catch (error) {
+            res.status(400).json({message:error.message})
+        }
+    } else {
+        res.status(404).json({message:'invalid id & data'});
+    };
+;}
 
 const deleteProduct = async(req, res) => {
     try {
