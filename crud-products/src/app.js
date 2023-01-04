@@ -1,9 +1,12 @@
 const express = require('express');
 
 const db = require('./utils/database')
-const config = require('./config')
+const config = require('./config');
+const initModels = require('./models/initModel');
 
 const app = express()
+
+initModels(),
 
 
 db.authenticate()
