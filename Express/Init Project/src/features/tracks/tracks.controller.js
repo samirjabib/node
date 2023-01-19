@@ -14,7 +14,7 @@ const postItems = async (req,res) => {
     const { body } = req
 
     try {
-        const data = await tracksServices.getItems(body) 
+        const data = await tracksServices.postItems(body) 
         res.send({data})   
     } catch (error) {
         res.send(error)
