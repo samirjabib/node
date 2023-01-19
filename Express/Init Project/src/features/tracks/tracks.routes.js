@@ -12,9 +12,9 @@ const {
 
 const tracksRouter = express.Router();
 
-const data = ["hello", "wrld"]
-
 tracksRouter.get("/", getItems)
+tracksRouter.post("/", postItems)
+
 
 
 module.exports = { tracksRouter }
