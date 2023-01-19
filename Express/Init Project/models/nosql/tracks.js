@@ -1,23 +1,42 @@
 const mongoose = require("mongoose")
 
-const UserScheme = new mongoose.Schema(
+const TracksScheme = new mongoose.Schema(
     {
         name:{
             type:String,
         },
-        age:{
-            type:Number
-        },
-        email:{
+        album:{
             type:String,
             unique:true,
         },
-        password:{
+        cover:{
             type:String,
+            validator: (req) => {
+                return true
+            },
+            message:"ERROR_URL",
         },
-        role:{
-            type:["user", "admin"],
-            default:"user",
+        artist:{
+            name:{
+                type:String,
+            },
+            nickname:{
+                type:String,
+            },
+            nationality:{
+                type:String,
+            },
+            duration:{
+                start:{
+                    type:Number,
+                },
+                end:{
+                    type:Number,
+                },
+            },
+            mediaId:{
+                type:mongoose.Types.ObjectId
+            },
         }
     },
     {
@@ -26,4 +45,4 @@ const UserScheme = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model("users", UserScheme)
+module.exports = mongoose.model("users", TracksScheme)
