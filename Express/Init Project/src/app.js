@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const cors = require("cors") //Cors nos permite evitar el error de origen cruzado entre navegadores
 
-const { dbConnect } = require('../config/mongo')
+const { dbConnect } = require('./config/mongo')
 const { router } = require('./router/router')
 
 const app = express()
